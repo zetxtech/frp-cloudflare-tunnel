@@ -60,3 +60,6 @@ customDomains = ["subdomain.example.com"]
 子域名的添加可以直接在 Cloudflare Tunnel 面板配置，公共主机名处添加类型为`HTTP`，URL 为`localhost:8080`，公共主机名如`subdomain.example.com`即可
 
 注意多个 http(s) 实例添加子域名时 URL 也都为`localhost:8080`，只需主机名一一对应即可
+
+## 保活配置
+将容器的`8889`端口通过容器平台分配的URL暴露至公网，定期访问该URL即可实现保活
