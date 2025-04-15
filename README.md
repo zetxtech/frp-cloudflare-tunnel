@@ -15,13 +15,14 @@
 
 ### 客户端配置
 参考[文档](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)安装cloudflared
+
 首先执行以下命令测试上一步的公共主机名如`frp.example.com`是否能成功映射到本地，不报错即是连接成功
 ```sh
 cloudflared access tcp --hostname frp.example.com --url localhost:7000
 ```
-再将以下命令中的`frp.example.com`**替换为实际的主机名**后执行
+再将以下命令中的`frp.example.com`**替换为实际的主机名**后以 **root** 权限执行以下命令
 ```sh
-sudo bash -c 'cat > /etc/systemd/system/cloudflared-tcp.service <<EOF
+cat > /etc/systemd/system/cloudflared-tcp.service <<EOF
 [Unit]
 Description=Cloudflared TCP Access Service
 After=network.target
@@ -36,11 +37,14 @@ SyslogIdentifier=cloudflared
 [Install]
 WantedBy=multi-user.target
 EOF
-&& systemctl daemon-reload
-&& systemctl enable cloudflared-tcp.service
-&& systemctl start cloudflared-tcp.service'
 ```
-参考[ frp 官方文档](https://gofrp.org/zh-cn/docs/)配置**frpc**
+再以 **root** 权限依次执行以下命令启用`cloudflared-tcp.service`服务
+```sh
+systemctl daemon-reload
+systemctl enable cloudflared-tcp.service
+systemctl start cloudflared-tcp.service
+```
+参考[ frp 官方文档](https://gofrp.org/zh-cn/docs/)安装配置**frpc**
 
 frpc 的示例配置文件`frpc.toml`如下，注意这里的`auth.token`需要和服务端的`frps.toml`中相同，域名和服务端口按实际更改
 ```toml
