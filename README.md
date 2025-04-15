@@ -14,9 +14,10 @@
 公共主机名处添加类型为`TCP`，URL 为`localhost:8080`，公共主机名如`frp.example.com`
 
 ### 客户端配置
+参考[文档](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)安装cloudflared
 首先执行以下命令测试上一步的公共主机名如`frp.example.com`是否能成功映射到本地，不报错即是连接成功
 ```sh
-cloudflared access tcp --hostname frps.example.com --url localhost:7000
+cloudflared access tcp --hostname frp.example.com --url localhost:7000
 ```
 再将以下命令中的`frp.example.com`**替换为实际的主机名**后执行
 ```sh
