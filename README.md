@@ -6,7 +6,7 @@
 ## 使用说明
 不修改 frps 配置文件：使用镜像`ghcr.io/madisonwirtanen/frp-cloudflare-tunnel:main`
 
-自定义 frps 配置文件：fork 仓库后修改`frps.toml`文件
+自定义 frps 配置文件：fork 仓库后修改`frps.toml`文件，或在容器平台将自定义的文件写入路径`/frp/frps.toml`
 
 环境变量（必填）：`CLOUDFLARED_TOKEN`值为 Cloudflare Tunnel 的令牌`eyxxxxxx`
 
