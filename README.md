@@ -11,7 +11,7 @@
 环境变量（必填）：`CLOUDFLARED_TOKEN`值为 Cloudflare Tunnel 的令牌`eyxxxxxx`
 
 ### Cloudflare Tunnel 面板配置
-公共主机名处添加类型为`TCP`，URL 为`localhost:8080`，公共主机名如`frp.example.com`
+公共主机名处添加类型为`TCP`，URL 为`localhost:7000`，公共主机名如`frp.example.com`
 
 ### 客户端配置
 参考[文档](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)安装cloudflared
